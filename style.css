@@ -1,0 +1,105 @@
+/* Orbitron ve Poppins Fontları */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600;800&display=swap');
+
+body { background: transparent; overflow: hidden; font-family: 'Poppins', sans-serif; margin: 0; perspective: 1500px; }
+
+.main-container { 
+    position: relative; width: 1100px; height: 400px; 
+    padding-top: 100px; padding-left: 150px; overflow: visible; 
+}
+
+/* 🎸 GİTAR (Raw GitHub Linki) 🎸 */
+.guitar-overlay {
+    position: absolute; width: 220px; height: 380px;
+    background-image: url('https://raw.githubusercontent.com/omerkwr/scoreb/refs/heads/main/gitar.png');
+    background-size: contain; background-repeat: no-repeat;
+    left: -600px; 
+    top: -40px; z-index: 100; opacity: 0;
+    /* Yeni Tema Rengi Parlama */
+    filter: drop-shadow(0 0 35px rgba(0, 255, 185, 0.8));
+    will-change: transform, left, opacity;
+}
+
+/* KİCK LOGO (Zoomlanmış ve Güncellenmiş) */
+.channel-logo {
+    position: absolute; 
+    top: 35px; /* Boyut büyüdüğü için konumu ayarlandı */
+    left: 130px; 
+    width: 105px; /* 90px -> 105px (Zoom etkisi) */
+    height: 105px; 
+    border-radius: 50%;
+    border: 4px solid rgba(0, 255, 185, 1); 
+    background-image: url('https://files.kick.com/images/user/26667654/profile_image/conversion/ac842904-4ade-4296-b881-5596eafb5912-fullsize.webp');
+    background-size: 110%; /* İçeriden de biraz zoom */
+    background-position: center;
+    z-index: 40; 
+    box-shadow: 0 0 35px rgba(0, 255, 185, 0.6);
+}
+
+/* MARKA ETİKETİ (KendineMuzisyen) */
+.brand-tag { 
+    position: absolute; top: 55px; left: 245px; 
+    background: rgba(0, 255, 185, 1); color: #000; 
+    font-size: 16px; font-weight: 900; padding: 6px 45px; border-radius: 8px 25px 0 0; 
+    text-transform: uppercase; letter-spacing: 2px; z-index: 10; 
+}
+
+/* SKORBORD GÖVDE */
+.scoreboard { 
+    display: flex; align-items: center; 
+    background: #050505;
+    border-radius: 0 20px 20px 20px; width: 620px; height: 105px; 
+    color: white; border-bottom: 7px solid rgba(0, 255, 185, 1);
+    position: relative; z-index: 20; margin-left: 50px;
+    transition: all 0.3s ease-out;
+}
+
+.team { flex: 1; display: flex; align-items: center; justify-content: center; gap: 20px; }
+.team-name { font-size: 32px; font-weight: 800; color: #fff; text-align: center; min-width: 90px; }
+.logo { width: 65px; height: 65px; object-fit: contain; }
+
+.center-box { 
+    display: flex; flex-direction: column; align-items: center; width: 200px; 
+    border-left: 3px solid rgba(0, 255, 185, 0.4); border-right: 3px solid rgba(0, 255, 185, 0.4); 
+}
+
+.score-row { 
+    font-family: 'Orbitron', sans-serif; font-size: 54px; 
+    color: rgba(0, 255, 185, 1); 
+    text-shadow: 0 0 25px rgba(0, 255, 185, 0.6); line-height: 1; 
+}
+
+.status { font-family: 'Orbitron', sans-serif; font-size: 16px; color: #fff; margin-top: 5px; letter-spacing: 3px; font-weight: bold; }
+
+/* 🔥 GOL ANİMASYONLARI 🔥 */
+.goal-active .guitar-overlay {
+    animation: guitar-glide 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+}
+
+.goal-active .scoreboard {
+    animation: shred-vibe 0.08s infinite alternate;
+    box-shadow: 0 0 150px rgba(0, 255, 185, 0.8), inset 0 0 30px rgba(255,255,255,0.1);
+    border-bottom-color: #fff;
+}
+
+.goal-active .score-row {
+    animation: neon-flicker 0.15s infinite alternate;
+    color: #fff;
+}
+
+@keyframes guitar-glide {
+    0% { left: -600px; opacity: 0; transform: rotate(-30deg) scale(0.9); }
+    20% { opacity: 1; left: -100px; }
+    80% { opacity: 1; left: 600px; transform: rotate(10deg) scale(1.1); }
+    100% { left: 1500px; opacity: 0; transform: rotate(40deg) scale(1.3); }
+}
+
+@keyframes shred-vibe {
+    0% { transform: translate(1px, 1px); }
+    100% { transform: translate(-1px, -1.5px); }
+}
+
+@keyframes neon-flicker {
+    0% { text-shadow: 0 0 25px rgba(0, 255, 185, 1), 0 0 50px rgba(0, 255, 185, 1); }
+    100% { text-shadow: 0 0 40px #fff, 0 0 70px rgba(0, 255, 185, 1), 0 0 100px rgba(0, 255, 185, 1); }
+}
