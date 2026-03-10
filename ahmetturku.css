@@ -1,0 +1,60 @@
+/* Gol Animasyonu Konteynırı */
+.goal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Maça tıklamayı engellemez */
+    z-index: 20;
+    border-radius: 15px;
+}
+
+/* Kayan Logo Ayarları */
+.goal-img-animate {
+    position: absolute;
+    height: 150%; /* Skorborddan biraz daha büyük dursun */
+    top: -25%;
+    left: -200px;
+    opacity: 0;
+    filter: drop-shadow(0 0 20px rgba(255, 84, 1, 0.9)) brightness(1.2);
+    transform: skewX(-15deg); /* Daha dinamik bir geçiş için hafif eğim */
+}
+
+/* Animasyon Tetiklendiğinde Çalışacak Class */
+.goal-active .goal-img-animate {
+    animation: slideGlow 2.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+}
+
+/* Kayma ve Parlama Keyframeleri */
+@keyframes slideGlow {
+    0% {
+        left: -250px;
+        opacity: 0;
+        filter: drop-shadow(0 0 10px rgba(255, 84, 1, 0.5)) brightness(1);
+    }
+    20% {
+        opacity: 1;
+    }
+    50% {
+        filter: drop-shadow(0 0 40px rgba(252, 178, 4, 1)) brightness(1.5);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        left: 110%;
+        opacity: 0;
+        filter: drop-shadow(0 0 10px rgba(255, 84, 1, 0.5)) brightness(1);
+    }
+}
+
+/* Test İçin Tıklama Alanı Efekti */
+#scoreArea {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+#scoreArea:active {
+    transform: scale(0.9);
+}
